@@ -1,5 +1,5 @@
 # ArweaveQuery
-An NPM package providing tools for fetching data from the Arweave blockweave, allowing efficient queries for both metadata and raw data.
+NPM package providing tools for fetching data from the Arweave blockweave, allowing efficient queries for both metadata and raw data.
 
 ## Installation
 ```bash

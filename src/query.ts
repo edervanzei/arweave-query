@@ -1,5 +1,5 @@
 import { DEFAULT_GATEWAY } from './const';
-import { ArweaveGateway, ArweaveResponse, ArweaveSort, IArweaveResponseHandler } from './models';
+import { ArweaveGateway, ArweaveSort, IArweaveResponseHandler } from './models';
 import { convertArweaveGateway } from './utils';
 
 export class ArweaveDataQueryBuilder {
@@ -192,7 +192,9 @@ export class ArweaveMetadataQueryBuilder {
     if (!response.ok)
       throw new Error(await response.text());
 
-    const data: ArweaveResponse = await response.json() as ArweaveResponse;
+    const data: any = await response.json();
+    if (data.errors)
+      throw new Error(JSON.stringify(data));
 
     if (this.responseHandler)
       return await this.responseHandler.handle(data);
